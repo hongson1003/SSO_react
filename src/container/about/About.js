@@ -1,9 +1,12 @@
 import React from 'react'
+import WeatherState from './WeatherState';
+import './About.scss';
+
 
 function About() {
     return (
-        <div>
-            <h1 className='text-center'>AboutPage</h1>
+        <div className='main-about'>
+            <WeatherState />
         </div>
     )
 }

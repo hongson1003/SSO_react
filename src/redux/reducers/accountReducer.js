@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     userInfo: {
         accessToken: "",
         refresh: "",
-        roles: "",
+        roles: [],
         username: "",
         email: "",
     },
@@ -29,11 +29,11 @@ const reducer = (state = INITIAL_STATE, action) => {
         }
 
         case USER_LOGIN_SUCCESS: {
-            console.log(action.payload)
+            let _state = { ...state };
+            _state.userInfo = action.payload;
+            _state.isLogin = true;
             return {
-                ...state,
-                userInfo: action.payload,
-                isLogin: true,
+                ..._state,
             }
         }
         case accountType.LOG_OUT: {

@@ -38,7 +38,6 @@ const Code = () => {
             {message.trim() === "" ?
                 <h1 className="text-center p-5">Đăng nhập thành công</h1> :
                 <h1 className="text-center p-5">{message} <a href="/">Vui lòng nhấp vào đây để trở lại trang home ...'</a></h1>
-
             }
         </div>
     )

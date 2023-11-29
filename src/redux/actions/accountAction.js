@@ -13,11 +13,12 @@ export const doLogin = (ssoToken) => {
         })
         axios.post(`${process.env.REACT_APP_BACKEND_SSO}/verify`, { ssoToken }, { withCredentials: true })
             .then(res => {
+                console.log(res);
                 if (res.errCode !== 0) {
                     dispatch({ type: USER_LOGIN_FAIL, payload: res.message });
                 } else {
                     dispatch({ type: USER_LOGIN_SUCCESS, payload: res.data })
-                    window.location.href = `${process.env.REACT_APP_SERVICE}`
+                    // window.location.href = `${process.env.REACT_APP_SERVICE}`
                 }
             })
             .catch((e) => {
@@ -35,7 +36,7 @@ export const doGetAccount = () => {
         })
         axios.post(`${process.env.REACT_APP_BACKEND_SSO}/api/account`, {}, { withCredentials: true })
             .then(res => {
-                if (res.errCode !== 0) {
+                if (res?.errCode !== 0) {
                     dispatch({ type: USER_LOGIN_FAIL, payload: res.message });
                 } else {
                     dispatch({ type: USER_LOGIN_SUCCESS, payload: res.data })

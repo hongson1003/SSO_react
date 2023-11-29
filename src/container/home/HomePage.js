@@ -4,9 +4,23 @@ import {
 } from "../../redux/actions/counterAction";
 import { connect } from "react-redux";
 import './HomePage.scss'
+import { useEffect, useRef } from "react";
+// import axios from "../../customize/axios";
 
 
 function HomePage(props) {
+    let firstOne = useRef(false);
+    useEffect(() => {
+        if (firstOne.current === false) {
+            firstOne.current = true;
+            // axios.get('http://localhost:8081/health', { withCredentials: true }).then(res => {
+            //     console.log(res);
+            // })
+            //     .catch(err => {
+            //         console.log(err);
+            //     })
+        }
+    })
     return (
         <div>
             <h1 className="text-center">HomePage</h1>
@@ -19,7 +33,7 @@ function HomePage(props) {
 
             </div>
             <div className="p-5">
-                <img className="image" src="anhdepvietnam.jpg" />
+                <img alt="" className="image" src="anhdepvietnam.jpg" />
             </div>
         </div >
     );
